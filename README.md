@@ -1,7 +1,23 @@
-# Tauri + Leptos
+# Rust Node Version Management
 
-This template should help get you started developing with Tauri and Leptos.
+Cross-platform node version management tool developed using Rust, Tauri, and Leptos
 
-## Recommended IDE Setup
+![Alt text](app.jpg)
 
-[VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+## How to use
+
+```shell
+cargo install tauri-cli  
+cargo install trunk   
+git clone https://github.com/ES1993/rnpm.git
+cd rnpm
+cargo tauri build
+```
+
+## Problam
+
+if show damaged
+
+```shell
+xattr -cr /Applications/rnpm.app/
+```
