@@ -84,7 +84,6 @@ pub async fn node_list(app: AppHandle, state: State<'_, AppState>) -> AppResult<
                 return res;
             })
             .collect::<Vec<_>>();
-        dbg!(res.len());
 
         ns.all = res;
         nodes = &ns.all;
@@ -99,6 +98,7 @@ pub async fn node_list(app: AppHandle, state: State<'_, AppState>) -> AppResult<
 
 #[tauri::command]
 pub async fn node_local_versions(app: AppHandle, state: State<'_, AppState>) -> AppResult<Value> {
+    tokio::fs::create_dir_all(&state.config.node_dir).await?;
     let mut res = tokio::fs::read_dir(&state.config.node_dir).await?;
 
     let mut local_versions = vec![];
