@@ -1,0 +1,35 @@
+[package]
+name = "rnpm"
+version = "0.0.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.5", features = [ "dialog-all", "shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.11.22", features = [
+    "blocking",
+    "json",
+    "rustls-tls",
+    "stream",
+], default-features = false }
+semver = "1.0.21"
+tempfile = "3.10.0"
+dirs = "5.0.1"
+tar = "0.4.40"
+xz2 = "0.1.7"
+tokio = { version = "1.36.0", features = ["full"] }
+tokio-stream = "0.1.14"
+globenv = "0.2.1"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
